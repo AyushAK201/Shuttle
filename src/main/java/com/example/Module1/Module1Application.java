@@ -1,8 +1,6 @@
 package com.example.Module1;
 
-import com.example.Module1.impl.EmailNotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,20 +8,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Module1Application implements CommandLineRunner {
 
- //   @Autowired  // This basically tell the spring that if we have the bean of PaymentService call please inject it here
-    final NotificationService notifObj;  //injecting dependency
+    @Autowired  // This basically tell the spring that if we have the bean of PaymentService call please inject it here
+    PaymentService paymentServiceObj;
 
-    public Module1Application(NotificationService notficSrvObj)
-    {
-       this.notifObj=notficSrvObj;   //constructor dependency injection
-    }
 	public static void main(String[] args) {
 		SpringApplication.run(Module1Application.class, args);
 	}
 
     @Override
     public void run(String... args) throws Exception {
-    //  notifObj=new EmailNotificationService();
-      notifObj.send("Hello");
+        paymentServiceObj.Pay();
     }
 }
