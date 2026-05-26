@@ -13,7 +13,7 @@ public class Module1Application implements CommandLineRunner {
  //   @Autowired  // This basically tell the spring that if we have the bean of PaymentService call please inject it here
     final NotificationService notifObj;  //injecting dependency
 
-    public Module1Application(@Qualifier("smsNotif") NotificationService notficSrvObj)
+    public Module1Application(NotificationService notficSrvObj)
     {
        this.notifObj=notficSrvObj;   //constructor dependency injection
     }

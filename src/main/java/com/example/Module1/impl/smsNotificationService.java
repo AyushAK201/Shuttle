@@ -2,10 +2,11 @@ package com.example.Module1.impl;
 
 import com.example.Module1.NotificationService;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 @Component
-@Qualifier("smsNotif")
+@ConditionalOnProperty(name = "notification.type" , havingValue="sms")
 public class smsNotificationService implements NotificationService {
 
     @Override
